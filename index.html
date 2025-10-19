@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AURA ROYAL | Премиум онлайн-казино</title>
+    <!-- Премиальный фавикон -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%23FFD700;stop-opacity:1' /><stop offset='50%' style='stop-color:%239B51E0;stop-opacity:1' /><stop offset='100%' style='stop-color:%2300F5FF;stop-opacity:1' /></linearGradient></defs><path d='M50,15 L60,40 L85,40 L65,55 L75,80 L50,65 L25,80 L35,55 L15,40 L40,40 Z' fill='url(%23grad)' stroke='%230a0a18' stroke-width='2'/><circle cx='50' cy='50' r='45' fill='none' stroke='url(%23grad)' stroke-width='2'/></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
@@ -532,9 +534,14 @@
             text-align: center;
         }
 
+        /* Улучшенный hero-badge */
         .hero-badge {
             display: inline-block;
             margin-bottom: 1.5rem;
+            transform: scale(1.1);
+            font-size: 1rem;
+            padding: 12px 24px;
+            animation: float 3s ease-in-out infinite;
         }
 
         .hero-logo {
@@ -613,7 +620,7 @@
         }
 
         .promo-card {
-            padding: 40px 24px 30px;
+            padding: 50px 24px 30px !important; /* Увеличен верхний отступ */
             position: relative;
             display: flex;
             flex-direction: column;
@@ -623,13 +630,15 @@
         .promo-card.featured {
             border: 2px solid var(--accent-gold);
             box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            padding-top: 55px !important; /* Дополнительный отступ для featured карточек */
         }
 
         .promo-badge {
             position: absolute;
-            top: -12px;
+            top: 15px !important; /* Увеличен отступ сверху */
             right: 24px;
             z-index: 2;
+            transform: scale(0.9); /* Немного уменьшен размер */
         }
 
         .promo-icon {
@@ -1545,6 +1554,12 @@
             .vip-level.featured {
                 transform: none;
             }
+
+            /* Восстанавливаем анимацию hero-badge на планшетах */
+            .hero-badge {
+                animation: float 3s ease-in-out infinite !important;
+                transform: scale(1.05) !important;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1557,7 +1572,7 @@
             }
             
             .hero {
-                padding: 100px 0 70px;
+                padding: 140px 0 70px !important;
                 min-height: 90vh;
             }
             
@@ -1614,9 +1629,49 @@
                 padding: 10px 16px;
                 font-size: 0.85rem;
             }
+
+            /* Hero-badge на мобильных */
+            .hero-badge {
+                animation: float 3s ease-in-out infinite !important;
+                transform: scale(1) !important;
+                margin-top: 10px !important;
+                font-size: 0.9rem !important;
+                padding: 10px 20px !important;
+            }
         }
 
+        /* Улучшения для header на маленьких экранах */
         @media (max-width: 576px) {
+            .nav-container {
+                flex-wrap: wrap;
+                padding: 0 12px;
+            }
+            
+            .nav-actions {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                margin-top: 10px;
+                gap: 8px;
+            }
+            
+            .nav-actions .btn {
+                min-width: 120px !important;
+                padding: 10px 16px !important;
+                font-size: 0.8rem !important;
+                flex: 1;
+                max-width: 140px;
+            }
+            
+            .logo {
+                font-size: 1.4rem;
+                flex: 1;
+            }
+            
+            .mobile-toggle {
+                order: 2;
+            }
+
             .hero-title {
                 font-size: 2rem;
             }
@@ -1692,16 +1747,34 @@
                 padding: 34px 20px 24px;
             }
 
-            .nav-container {
-                padding: 0 16px;
-            }
-
-            .logo {
-                font-size: 1.6rem;
+            .hero-badge {
+                animation: float 3s ease-in-out infinite !important;
+                transform: scale(0.9) !important;
+                font-size: 0.85rem !important;
+                padding: 8px 16px !important;
             }
         }
 
         @media (max-width: 480px) {
+            .nav-actions {
+                flex-direction: column;
+                gap: 6px;
+            }
+            
+            .nav-actions .btn {
+                min-width: 100% !important;
+                max-width: 100%;
+                padding: 12px 16px !important;
+            }
+            
+            .header {
+                padding: 8px 0;
+            }
+            
+            .header.scrolled {
+                padding: 6px 0;
+            }
+
             .hero-title {
                 font-size: 1.8rem;
             }
@@ -1770,9 +1843,29 @@
                 padding: 12px 20px;
                 font-size: 0.9rem;
             }
+
+            .hero-badge {
+                animation: float 3s ease-in-out infinite !important;
+                transform: scale(0.85) !important;
+                font-size: 0.8rem !important;
+                padding: 7px 14px !important;
+            }
         }
 
         @media (max-width: 360px) {
+            .nav-container {
+                padding: 0 8px;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .nav-actions .btn {
+                padding: 10px 12px !important;
+                font-size: 0.75rem !important;
+            }
+
             .hero-title {
                 font-size: 1.6rem;
             }
@@ -1802,9 +1895,36 @@
                 font-size: 0.9rem;
             }
 
+            .hero-badge {
+                animation: float 3s ease-in-out infinite !important;
+                transform: scale(0.8) !important;
+                font-size: 0.75rem !important;
+                padding: 6px 12px !important;
+            }
+            
+            .hero {
+                padding: 150px 0 50px !important;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .nav-actions .btn span {
+                font-size: 0.7rem;
+            }
+            
+            .logo {
+                font-size: 1.2rem;
+            }
+            
             .nav-actions .btn {
-                padding: 8px 12px;
-                font-size: 0.8rem;
+                padding: 8px 10px !important;
+            }
+
+            .hero-badge {
+                animation: float 3s ease-in-out infinite !important;
+                transform: scale(0.75) !important;
+                font-size: 0.7rem !important;
+                padding: 5px 10px !important;
             }
         }
 
@@ -2000,6 +2120,7 @@
         </div>
     </section>
 
+    <!-- Остальной код остается без изменений -->
     <!-- PROMOTIONS SECTION -->
     <section class="section promotions" id="promotions">
         <div class="container">
@@ -2550,7 +2671,7 @@
         </div>
     </footer>
 
-    <!-- LOGIN MODAL -->
+    <!-- MODALS -->
     <div class="modal" id="loginModal">
         <div class="modal-content">
             <button class="modal-close" id="loginModalClose">&times;</button>
@@ -2575,7 +2696,6 @@
         </div>
     </div>
 
-    <!-- REGISTER MODAL -->
     <div class="modal" id="registerModal">
         <div class="modal-content">
             <button class="modal-close" id="registerModalClose">&times;</button>
@@ -2607,327 +2727,186 @@
     </div>
 
     <script>
-        // PRELOADER - УПРОЩЕННАЯ ВЕРСИЯ БЕЗ ЗАВИСАНИЯ
+        // Упрощенный код для предотвращения ошибок
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded');
+            
             const preloader = document.getElementById('preloader');
             const progressBar = document.getElementById('progressBar');
             
-            // Простая анимация прогресс-бара
+            // Быстрая загрузка без зависаний
             let width = 0;
             const interval = setInterval(function() {
                 if (width >= 100) {
                     clearInterval(interval);
-                    // Скрываем прелоадер сразу после завершения
                     preloader.classList.add('fade-out');
                     setTimeout(function() {
-                        preloader.style.display = 'none';
-                    }, 800);
+                        if (preloader && preloader.parentNode) {
+                            preloader.style.display = 'none';
+                        }
+                    }, 500);
                 } else {
-                    width += 2;
-                    progressBar.style.width = width + '%';
+                    width += 4;
+                    if (progressBar) {
+                        progressBar.style.width = width + '%';
+                    }
                 }
-            }, 30);
+            }, 20);
 
-            // Инициализация частиц
-            if (typeof particlesJS !== 'undefined') {
-                particlesJS('particles-js', {
-                    particles: {
-                        number: {
-                            value: 80,
-                            density: {
-                                enable: true,
-                                value_area: 800
-                            }
+            // Безопасная инициализация частиц
+            try {
+                if (typeof particlesJS !== 'undefined') {
+                    particlesJS('particles-js', {
+                        particles: {
+                            number: { value: 60, density: { enable: true, value_area: 800 } },
+                            color: { value: ['#FFD700', '#9B51E0', '#00F5FF'] },
+                            shape: { type: 'circle' },
+                            opacity: { value: 0.5, random: true },
+                            size: { value: 3, random: true },
+                            line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.2, width: 1 },
+                            move: { enable: true, speed: 2, direction: 'none', random: true }
                         },
-                        color: {
-                            value: ['#FFD700', '#9B51E0', '#00F5FF']
-                        },
-                        shape: {
-                            type: 'circle',
-                            stroke: {
-                                width: 0,
-                                color: '#000000'
-                            }
-                        },
-                        opacity: {
-                            value: 0.5,
-                            random: true,
-                            anim: {
-                                enable: true,
-                                speed: 1,
-                                opacity_min: 0.1,
-                                sync: false
-                            }
-                        },
-                        size: {
-                            value: 3,
-                            random: true,
-                            anim: {
-                                enable: true,
-                                speed: 2,
-                                size_min: 0.1,
-                                sync: false
-                            }
-                        },
-                        line_linked: {
-                            enable: true,
-                            distance: 150,
-                            color: '#ffffff',
-                            opacity: 0.2,
-                            width: 1
-                        },
-                        move: {
-                            enable: true,
-                            speed: 2,
-                            direction: 'none',
-                            random: true,
-                            straight: false,
-                            out_mode: 'out',
-                            bounce: false,
-                            attract: {
-                                enable: false,
-                                rotateX: 600,
-                                rotateY: 1200
-                            }
+                        interactivity: {
+                            detect_on: 'canvas',
+                            events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' } }
                         }
-                    },
-                    interactivity: {
-                        detect_on: 'canvas',
-                        events: {
-                            onhover: {
-                                enable: true,
-                                mode: 'grab'
-                            },
-                            onclick: {
-                                enable: true,
-                                mode: 'push'
-                            },
-                            resize: true
-                        },
-                        modes: {
-                            grab: {
-                                distance: 140,
-                                line_linked: {
-                                    opacity: 0.5
-                                }
-                            },
-                            push: {
-                                particles_nb: 4
-                            }
-                        }
-                    },
-                    retina_detect: true
-                });
-            }
-        });
-
-        // Функция для запуска конфетти
-        function launchConfetti() {
-            if (typeof confetti === 'function') {
-                confetti({
-                    particleCount: 150,
-                    spread: 70,
-                    origin: { y: 0.6 },
-                    colors: ['#FFD700', '#9B51E0', '#00F5FF', '#FF4D8D']
-                });
-            }
-        }
-
-        // ОСНОВНОЙ КОД САЙТА
-        // DOM Elements
-        const header = document.getElementById('header');
-        const mobileToggle = document.getElementById('mobileToggle');
-        const navMenu = document.getElementById('navMenu');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const loginBtn = document.getElementById('loginBtn');
-        const registerBtn = document.getElementById('registerBtn');
-        const playNowBtn = document.getElementById('playNowBtn');
-        const getBonusBtn = document.getElementById('getBonusBtn');
-        const loginModal = document.getElementById('loginModal');
-        const registerModal = document.getElementById('registerModal');
-        const loginModalClose = document.getElementById('loginModalClose');
-        const registerModalClose = document.getElementById('registerModalClose');
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const gameLauncher = document.getElementById('gameLauncher');
-        const closeGameBtn = document.getElementById('closeGame');
-        const gameFrame = document.getElementById('gameFrame');
-        const gameTitle = document.getElementById('gameTitle');
-        const playGameBtns = document.querySelectorAll('.play-game');
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile menu toggle
-        if (mobileToggle) {
-            mobileToggle.addEventListener('click', () => {
-                mobileToggle.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-        }
-
-        // Close mobile menu when clicking on a link
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (mobileToggle) mobileToggle.classList.remove('active');
-                if (navMenu) navMenu.classList.remove('active');
-                
-                // Update active link
-                navLinks.forEach(item => item.classList.remove('active'));
-                link.classList.add('active');
-            });
-        });
-
-        // Modal functions
-        function openModal(modal) {
-            if (modal) {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                // Запускаем конфетти при открытии регистрации
-                if (modal === registerModal) {
-                    setTimeout(launchConfetti, 300);
-                }
-            }
-        }
-
-        function closeModal(modal) {
-            if (modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        // Event listeners for modals
-        if (loginBtn) loginBtn.addEventListener('click', () => openModal(loginModal));
-        if (registerBtn) registerBtn.addEventListener('click', () => openModal(registerModal));
-        if (playNowBtn) playNowBtn.addEventListener('click', () => {
-            openModal(registerModal);
-            launchConfetti();
-        });
-        if (getBonusBtn) getBonusBtn.addEventListener('click', () => {
-            openModal(registerModal);
-            launchConfetti();
-        });
-
-        if (loginModalClose) loginModalClose.addEventListener('click', () => closeModal(loginModal));
-        if (registerModalClose) registerModalClose.addEventListener('click', () => closeModal(registerModal));
-
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === loginModal) {
-                closeModal(loginModal);
-            }
-            if (e.target === registerModal) {
-                closeModal(registerModal);
-            }
-        });
-
-        // Games filter
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-            });
-        });
-
-        // Timer functionality
-        function updateTimers() {
-            const timers = document.querySelectorAll('.timer');
-            timers.forEach(timer => {
-                const units = timer.querySelectorAll('.time-unit');
-                if (units.length === 3) {
-                    // For promotions with hours/minutes/seconds
-                    let seconds = Math.floor(Math.random() * 86400);
-                    const hours = Math.floor(seconds / 3600);
-                    seconds %= 3600;
-                    const minutes = Math.floor(seconds / 60);
-                    seconds %= 60;
-                    
-                    units[0].innerHTML = `${hours.toString().padStart(2, '0')}<span>часов</span>`;
-                    units[1].innerHTML = `${minutes.toString().padStart(2, '0')}<span>минут</span>`;
-                    units[2].innerHTML = `${seconds.toString().padStart(2, '0')}<span>секунд</span>`;
-                }
-            });
-        }
-
-        // Update timers every second
-        setInterval(updateTimers, 1000);
-        updateTimers();
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
                     });
                 }
-            });
-        });
-
-        // Game launching functionality
-        const gameProviders = {
-            pragmatic: 'https://demogames-free.pragmaticplay.net/gs2c/openGame.do?gameSymbol=',
-            netent: 'https://cdn0.netent.com/static/casino/games/',
-            playngo: 'https://www.gameplay.demo.playngonetwork.com/'
-        };
-
-        function launchGame(gameId, provider, title) {
-            const demoUrl = `${gameProviders[provider]}${gameId}&lang=ru&lobbyUrl=`;
-            
-            if (gameFrame) gameFrame.src = demoUrl;
-            if (gameTitle) gameTitle.textContent = title;
-            if (gameLauncher) {
-                gameLauncher.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-                // Запускаем конфетти при открытии игры
-                setTimeout(launchConfetti, 500);
+            } catch (e) {
+                console.log('Particles.js error:', e);
             }
-        }
 
-        // Обработчики для кнопок "Играть"
-        playGameBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const gameName = this.getAttribute('data-game');
-                
-                const demoGames = {
-                    'Gates of Olympus': {id: 'vs20gatoc', provider: 'pragmatic'},
-                    'Book of Dead': {id: 'bookofdead', provider: 'playngo'},
-                    'Sweet Bonanza': {id: 'vs20swbona', provider: 'pragmatic'},
-                    'Starburst': {id: 'starburst', provider: 'netent'},
-                    'Mega Moolah': {id: 'megamoolah', provider: 'pragmatic'},
-                    'Lightning Roulette': {id: 'lightningroulette', provider: 'pragmatic'}
+            // Основные функции
+            function initApp() {
+                // Безопасное получение элементов
+                const elements = {
+                    header: document.getElementById('header'),
+                    mobileToggle: document.getElementById('mobileToggle'),
+                    navMenu: document.getElementById('navMenu'),
+                    navLinks: document.querySelectorAll('.nav-link'),
+                    loginBtn: document.getElementById('loginBtn'),
+                    registerBtn: document.getElementById('registerBtn'),
+                    playNowBtn: document.getElementById('playNowBtn'),
+                    getBonusBtn: document.getElementById('getBonusBtn'),
+                    loginModal: document.getElementById('loginModal'),
+                    registerModal: document.getElementById('registerModal'),
+                    loginModalClose: document.getElementById('loginModalClose'),
+                    registerModalClose: document.getElementById('registerModalClose'),
+                    closeGameBtn: document.getElementById('closeGame'),
+                    gameLauncher: document.getElementById('gameLauncher')
                 };
-                
-                const gameInfo = demoGames[gameName] || {id: 'default', provider: 'pragmatic'};
-                launchGame(gameInfo.id, gameInfo.provider, gameName);
-            });
+
+                // Header scroll effect
+                if (elements.header) {
+                    window.addEventListener('scroll', () => {
+                        if (window.scrollY > 50) {
+                            elements.header.classList.add('scrolled');
+                        } else {
+                            elements.header.classList.remove('scrolled');
+                        }
+                    });
+                }
+
+                // Mobile menu
+                if (elements.mobileToggle && elements.navMenu) {
+                    elements.mobileToggle.addEventListener('click', () => {
+                        elements.mobileToggle.classList.toggle('active');
+                        elements.navMenu.classList.toggle('active');
+                    });
+                }
+
+                // Close mobile menu on link click
+                if (elements.navLinks) {
+                    elements.navLinks.forEach(link => {
+                        link.addEventListener('click', () => {
+                            if (elements.mobileToggle) elements.mobileToggle.classList.remove('active');
+                            if (elements.navMenu) elements.navMenu.classList.remove('active');
+                        });
+                    });
+                }
+
+                // Modal functions
+                function openModal(modal) {
+                    if (modal) {
+                        modal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                }
+
+                function closeModal(modal) {
+                    if (modal) {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                }
+
+                // Event listeners for modals
+                if (elements.loginBtn) elements.loginBtn.addEventListener('click', () => openModal(elements.loginModal));
+                if (elements.registerBtn) elements.registerBtn.addEventListener('click', () => openModal(elements.registerModal));
+                if (elements.playNowBtn) elements.playNowBtn.addEventListener('click', () => openModal(elements.registerModal));
+                if (elements.getBonusBtn) elements.getBonusBtn.addEventListener('click', () => openModal(elements.registerModal));
+
+                if (elements.loginModalClose) elements.loginModalClose.addEventListener('click', () => closeModal(elements.loginModal));
+                if (elements.registerModalClose) elements.registerModalClose.addEventListener('click', () => closeModal(elements.registerModal));
+
+                // Close modals on outside click
+                window.addEventListener('click', (e) => {
+                    if (e.target === elements.loginModal) closeModal(elements.loginModal);
+                    if (e.target === elements.registerModal) closeModal(elements.registerModal);
+                });
+
+                // Game launcher
+                if (elements.closeGameBtn && elements.gameLauncher) {
+                    elements.closeGameBtn.addEventListener('click', function() {
+                        elements.gameLauncher.classList.add('hidden');
+                        document.body.style.overflow = 'auto';
+                    });
+                }
+
+                // Smooth scrolling
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        if (targetId === '#') return;
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+
+                // Form handling
+                const loginForm = document.getElementById('loginForm');
+                const registerForm = document.getElementById('registerForm');
+
+                if (loginForm) {
+                    loginForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        closeModal(elements.loginModal);
+                        alert('Добро пожаловать в AURA ROYAL!');
+                    });
+                }
+
+                if (registerForm) {
+                    registerForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        closeModal(elements.registerModal);
+                        alert('Регистрация успешна! Бонус 300% активирован.');
+                    });
+                }
+
+                console.log('App initialized successfully');
+            }
+
+            // Запуск приложения с задержкой для стабильности
+            setTimeout(initApp, 100);
         });
 
-        // Close game launcher
-        if (closeGameBtn) {
-            closeGameBtn.addEventListener('click', function() {
-                if (gameLauncher) {
-                    gameLauncher.classList.add('hidden');
-                    if (gameFrame) gameFrame.src = '';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        }
-
-        // Добавляем CSS для анимации точек
+        // Добавление CSS для точек загрузки
         const style = document.createElement('style');
         style.textContent = `
             @keyframes dots {
@@ -2942,46 +2921,6 @@
             }
         `;
         document.head.appendChild(style);
-
-        // Простая обработка форм
-        const loginForm = document.getElementById('loginForm');
-        const registerForm = document.getElementById('registerForm');
-
-        if (loginForm) {
-            loginForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                closeModal(loginModal);
-                alert('Добро пожаловать в AURA ROYAL!');
-            });
-        }
-
-        if (registerForm) {
-            registerForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                closeModal(registerModal);
-                alert('Регистрация успешна! Бонус 300% активирован. Проверьте вашу почту для подтверждения.');
-                launchConfetti();
-            });
-        }
-
-        // Enhanced animations for elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for animation
-        document.querySelectorAll('.glass-card, .section-title, .section-subtitle').forEach(el => {
-            observer.observe(el);
-        });
     </script>
 </body>
 </html>
